@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8">
+ <title>Data JSON dalam Bentuk Tabel</title>
+ <style>
+  table {
+   border-collapse: collapse;
+   width: 70%;
+   margin-top: 20px;
+  }
+  th, td {
+   border: 1px solid #333;
+   padding: 8px;
+   text-align: left;
+  }
+  th {
+   background-color: #f2f2f2;
+  }
+  button {
+   cursor: pointer;
+   padding: 4px 8px;
+  }
+ </style>
+</head>
+<body>
+ <h2>Data JSON dalam Bentuk Tabel</h2>
+
+ <!-- Form Tambah Data -->
+ <form id="dataForm">
+  <input type="text" id="nama" placeholder="Nama" required>
+  <input type="text" id="alamat" placeholder="Alamat" required>
+  <input type="number" id="umur" placeholder="Umur" required>
+  <button type="submit">Tambah Data</button>
+ </form>
+
+ <!-- Tabel Data -->
+ <table id="dataTable">
+  <thead>
+   <tr>
+    <th>Nama</th>
+    <th>Alamat</th>
+    <th>Umur</th>
+    <th>Aksi</th>
+   </tr>
+  </thead>
+  <tbody></tbody>
+ </table>
+
+ <script>
+ const tableBody = document.querySelector("#dataTable tbody");
+ const form = document.querySelector("#dataForm");
+
+ // Fungsi load data dari server
+ function loadData() {
+   fetch("api.php")
+     .then(res => res.json())
+     .then(data => {
+       tableBody.innerHTML = "";
+       data.forEach((item, index) => {
+         const row = `
+           <tr>
+             <td>${item.nama}</td>
+             <td>${item.alamat}</td>
+             <td>${item.umur}</td>
+             <td><button onclick="hapusData(${index})">Hapus</button></td>
+           </tr>`;
+         tableBody.innerHTML += row;
+       });
+     })
+     .catch(err => console.error("Gagal memuat data:", err));
+ }
+
+ // Tambah data baru
+ form.addEventListener("submit", e => {
+   e.preventDefault();
+   const formData = {
+     nama: document.getElementById("nama").value,
+     alamat: document.getElementById("alamat").value,
+     umur: document.getElementById("umur").value
+   };
+
+   fetch("api.php", {
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify(formData)
+   })
+     .then(res => res.json())
+     .then(() => {
+       form.reset();
+       loadData();
+     })
+     .catch(err => console.error("Gagal menambah data:", err));
+ });
+
+ // Hapus data dari index
+ function hapusData(index) {
+   if (confirm("Yakin ingin menghapus data ini?")) {
+     fetch(`api.php?index=${index}`, { method: "DELETE" })
+       .then(res => res.json())
+       .then(() => loadData())
+       .catch(err => console.error("Gagal menghapus data:", err));
+   }
+ }
+
+ // Load data awal
+ loadData();
+ </script>
+</body>
+</html>
