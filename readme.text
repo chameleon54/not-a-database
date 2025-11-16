@@ -1,6 +1,6 @@
-# Its for my assignment
+ Its for my assignment
 
-## how to run it
+how to run it
 
 first open the folder project in cmd to get the path 
 example : CD C:\yada yada\ yada yada
@@ -10,6 +10,7 @@ php -S localhost:8000
 
 open it in browser
 http://localhost:8000/index.php
+
 
 
 
