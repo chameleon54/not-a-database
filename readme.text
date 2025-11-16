@@ -1,0 +1,11 @@
+how to run it
+
+first open the folder project in cmd to get the path 
+example : CD C:\yada yada\ yada yada
+
+run the php server using this commaand
+php -S localhost:8000
+
+open it in browser
+http://localhost:8000/index.php
+
