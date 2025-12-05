@@ -24,11 +24,11 @@
         "suplier_utama": "ewadadaf134145"
     },
     {
-        "kode_barang": "dadasfa",
-        "nama_barang": "gasd",
-        "harga_perolehan": 5000,
-        "harga_jual": 234145,
-        "jumlah_stock": 75,
-        "suplier_utama": "ewadadaf134145"
+        "kode_barang": "test23",
+        "nama_barang": "41414",
+        "harga_perolehan": "4141",
+        "harga_jual": "1414",
+        "jumlah_stock": "4141",
+        "suplier_utama": "41414"
     }
 ]

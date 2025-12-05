@@ -3,7 +3,7 @@
 <head>
  <meta charset="UTF-8">
  <title>Manajemen Data Barang</title>
- <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="/assets/CSS/style.css">
 </head>
 
 <body>
@@ -25,20 +25,20 @@
     <form id="dataForm">
         <input type="text" id="kode_barang" placeholder="Kode Barang" required>
         <input type="text" id="nama_barang" placeholder="Nama Barang" required>
-        <input type="number" id="harga_perolehan" placeholder="Harga Perolehan" required>
-        <input type="number" id="harga_jual" placeholder="Harga Jual" required>
+        <input type="text" id="harga_perolehan" placeholder="Harga Perolehan" required onkeyup="formatInputNumber(this)">
+        <input type="text" id="harga_jual" placeholder="Harga Jual" required onkeyup="formatInputNumber(this)">
         <input type="number" id="jumlah_stock" placeholder="Jumlah Stock" required>
         <input type="text" id="suplier_utama" placeholder="Suplier Utama" required>
 
         <button type="submit">Tambah Data</button>
     </form>
     
+    <div id="tableContainer" style="position: relative; min-height: 200px;">
     <div id="loading" class="loading" style="display: none;">
         <div class="spinner"></div>
         <p>Memuat data...</p>
     </div>
 
-    <!-- Table -->
     <table id="dataTable">
         <thead>
             <tr>
@@ -53,8 +53,8 @@
         </thead>
         <tbody></tbody>
     </table>
-
 </div>
+
 
 <!-- Modal Edit -->
 <div id="editModal" class="modal">
@@ -75,6 +75,8 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="/assets/JS/script.js"></script>
+<div id="toastContainer"></div>
+
 </body>
 </html>
