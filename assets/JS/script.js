@@ -18,7 +18,7 @@ function showToast(message, type = "success") {
     // Hapus setelah animasi selesai (3s + 0.3s)
     setTimeout(() => {
         toast.remove();
-    }, 3500);
+    }, 3400);
 }
 
 
@@ -215,6 +215,97 @@ function hapusData(index) {
         .then(res => res.json())
         .then(() => loadData());showToast("Data berhasil dihapus!", "warning");
 }
+
+
+// EXPORT DATA
+document.getElementById("exportCSV").addEventListener("click", function () {
+
+    fetch("/assets/php/api.php")
+        .then(res => res.json())
+        .then(data => {
+
+            let csv = "Kode Barang,Nama Barang,Harga Perolehan,Harga Jual,Jumlah Stock,Suplier Utama\n";
+
+            data.forEach(item => {
+                csv += `${item.kode_barang},${item.nama_barang},${formatNumber(item.harga_perolehan)},${formatNumber(item.harga_jual)},${item.jumlah_stock},${item.suplier_utama}\n`;
+            });
+
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "data_barang.csv";
+            link.click();
+        });
+});
+
+document.getElementById("exportExcel").addEventListener("click", function () {
+
+    fetch("/assets/php/api.php")
+        .then(res => res.json())
+        .then(data => {
+
+            let table =
+                `<table>
+                    <tr>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Harga Perolehan</th>
+                        <th>Harga Jual</th>
+                        <th>Jumlah Stock</th>
+                        <th>Suplier Utama</th>
+                    </tr>`;
+
+            data.forEach(item => {
+                table += `
+                    <tr>
+                        <td>${item.kode_barang}</td>
+                        <td>${item.nama_barang}</td>
+                        <td>${formatNumber(item.harga_perolehan)}</td>
+                        <td>${formatNumber(item.harga_jual)}</td>
+                        <td>${item.jumlah_stock}</td>
+                        <td>${item.suplier_utama}</td>
+                    </tr>`;
+            });
+
+            table += "</table>";
+
+            const blob = new Blob([table], {
+                type: "application/vnd.ms-excel"
+            });
+
+            const url = URL.createObjectURL(blob);
+
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "data_barang.xls";
+            link.click();
+        });
+
+});
+
+//darkmode
+
+const toggleButton = document.getElementById("themeToggle");
+
+// apply saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggleButton.textContent = "☀️ Light Mode";
+}
+
+toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleButton.textContent = "☀️ Light Mode";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleButton.textContent = "🌙 Dark Mode";
+    }
+});
 
 
 loadData();

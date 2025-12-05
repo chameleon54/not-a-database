@@ -10,17 +10,17 @@
     {
         "kode_barang": "BRG002",
         "nama_barang": "Shampoo",
-        "harga_perolehan": 7000,
-        "harga_jual": 10000,
-        "jumlah_stock": 75,
+        "harga_perolehan": "7000",
+        "harga_jual": "10000",
+        "jumlah_stock": "75",
         "suplier_utama": "CV Wangi Indah"
     },
     {
-        "kode_barang": "adadda234",
-        "nama_barang": "mainan",
-        "harga_perolehan": "500",
-        "harga_jual": "5000",
-        "jumlah_stock": "5",
-        "suplier_utama": "pt mabar"
+        "kode_barang": "BRG003",
+        "nama_barang": "Skin Care",
+        "harga_perolehan": "40000",
+        "harga_jual": "50000",
+        "jumlah_stock": "500",
+        "suplier_utama": "PT SKINKER"
     }
 ]

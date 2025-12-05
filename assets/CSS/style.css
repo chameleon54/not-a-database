@@ -1,65 +1,244 @@
+/* -----------------------------------------------------
+   Root Variables (Modern Colors, Radius, Shadow)
+----------------------------------------------------- */
+:root {
+    --primary: #0d6efd;
+    --primary-dark: #0a58ca;
+
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --info: #3498db;
+
+    --text: #2d3436;
+    --border: #e3e3e3;
+
+    --radius: 8px;
+    --shadow: 0 4px 14px rgba(0,0,0,0.08);
+
+    --transition: 0.25s ease;
+}
+
+/* -----------------------------------------------------
+   THEME TOGGLE BUTTON
+----------------------------------------------------- */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: var(--primary-dark);
+}
+
+
+/* -----------------------------------------------------
+   DARK MODE VARIABLES
+----------------------------------------------------- */
+.dark {
+    --primary: #4c8dff;
+    --primary-dark: #3a73d1;
+
+    --success: #27ae60;
+    --danger: #e74c3c;
+    --warning: #f1c40f;
+    --info: #3498db;
+
+    --text: #f1f2f6;
+    --border: #555;
+
+    --bg: #1e1f24;
+    --card-bg: #2a2b31;
+
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* -----------------------------------------------------
+    APPLY DARK STYLES
+----------------------------------------------------- */
+
+.dark body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.dark .container {
+    background: var(--card-bg);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+.dark table th {
+    background: #3a3b40;
+}
+
+.dark table td,
+.dark table th {
+    border-color: #444;
+}
+
+.dark #searchInput {
+    background: #2d2e33;
+    border-color: #555;
+    color: var(--text);
+}
+
+.dark form input {
+    background: #2d2e33;
+    border-color: #555;
+    color: var(--text);
+}
+
+.dark .modal-content {
+    background: var(--card-bg);
+    color: var(--text);
+}
+
+.dark #loading {
+    background: var(--card-bg);
+}
+
+.dark .toast {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+.dark .action-btn,
+.dark .export-buttons button,
+.dark form button {
+    color: white;
+}
+
+
+
+/* -----------------------------------------------------
+   Global Layout
+----------------------------------------------------- */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background: #f5f6f8;
+    background: #f5f6fa;
+    color: var(--text);
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    font-size: 26px;
+    font-weight: 600;
 }
 
+
+/* -----------------------------------------------------
+   Card Container
+----------------------------------------------------- */
 .container {
     width: 90%;
     margin: auto;
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-/* Search */
+
+/* -----------------------------------------------------
+   Search Bar
+----------------------------------------------------- */
 #searchInput {
-    width: 250px;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    width: 260px;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    outline: none;
+    transition: var(--transition);
 }
 
-/* Form styling */
+#searchInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+}
+
+
+/* -----------------------------------------------------
+   Form Styling
+----------------------------------------------------- */
 form {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
 form input {
     padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: 15px;
+    transition: var(--transition);
 }
 
+form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(13,110,253,0.15);
+}
+
+/* Submit button */
 form button {
     grid-column: span 3;
-    padding: 10px;
-    background: #0d6efd;
+    padding: 12px;
+    background: var(--primary);
     color: white;
     border: none;
-    border-radius: 6px;
-    font-weight: bold;
+    border-radius: var(--radius);
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.2s;
+    transition: var(--transition);
 }
 
 form button:hover {
-    background: #0b5ed7;
+    background: var(--primary-dark);
 }
 
-/* Table */
+
+/* -----------------------------------------------------
+   Export Buttons
+----------------------------------------------------- */
+.export-buttons {
+    margin-bottom: 14px;
+    margin-top: 14px;
+}
+
+.export-buttons button {
+    padding: 8px 14px;
+    margin-right: 8px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    color: white;
+}
+
+#exportExcel { background: var(--success); }
+#exportCSV { background: var(--info); }
+
+#exportExcel:hover { background: #27ae60; }
+#exportCSV:hover { background: #2980b9; }
+
+
+/* -----------------------------------------------------
+   Table
+----------------------------------------------------- */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -67,216 +246,68 @@ table {
 }
 
 th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+    padding: 14px;
+    border-bottom: 1px solid #ececec;
     text-align: left;
 }
 
 th {
-    background: #f1f3f5;
-    font-weight: bold;
-}
-
-tr:hover {
-    background: #f8f9fa;
-}
-
-/* Delete Button */
-.delete-btn {
-    background: #dc3545;
-    padding: 6px 10px;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.delete-btn:hover {
-    background: #bb2d3b;
-}
-.edit-btn {
-    background: #0d6efd;
-    padding: 6px 10px;
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.edit-btn:hover {
-    background: #0a58ca;
-}
-
-/* Modal Overlay */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    background: rgba(0,0,0,0.5);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-/* Modal Box */
-.modal-content {
-    background: #fff;
-    width: 40%;
-    margin: 8% auto;
-    padding: 20px;
-    border-radius: 10px;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0; transform: scale(0.95);}
-    to {opacity: 1; transform: scale(1);}
-}
-
-.save-btn {
-    background: #198754;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.close-btn {
-    background: #6c757d;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.modal form input {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
-}
-
-/* Loading Section */
-.loading {
-    text-align: center;
-    padding: 20px;
-}
-
-.spinner {
-    margin: 0 auto;
-    width: 45px;
-    height: 45px;
-    border: 5px solid #e3e3e3;
-    border-top: 5px solid #0d6efd;
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loading p {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #555;
-}
-
-.export-buttons {
-    margin-bottom: 15px;
-}
-
-.export-buttons button {
-    padding: 8px 15px;
-    margin-right: 8px;
-    background: #198754;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.export-buttons button:hover {
-    background: #157347;
-}
-
-/* Toast Container */
-#toastContainer {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 9999;
-}
-
-/* Toast box */
-.toast {
-    padding: 12px 18px;
-    color: white;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    opacity: 0;
-    transform: translateX(50px);
-    animation: toastIn 0.3s forwards, toastOut 0.3s ease forwards 3s;
-}
-
-/* Color types */
-.toast.success { background: #2ecc71; }
-.toast.error   { background: #e74c3c; }
-.toast.warning { background: #f39c12; }
-.toast.info    { background: #3498db; }
-
-/* Fade + slide in */
-@keyframes toastIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Fade out */
-@keyframes toastOut {
-    to {
-        opacity: 0;
-        transform: translateX(50px);
-    }
+    background: #f8f9fc;
+    font-weight: 600;
 }
 
 
-.table-row {
-    animation: fadeInUp 0.25s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Row Hover */
 #dataTable tbody tr {
-    transition: background-color 0.25s ease;
+    transition: background-color 0.2s ease;
 }
 
 #dataTable tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: #f3f4f6;
 }
+
+/* Fade-in Row */
+.table-row {
+    animation: fadeInUp 0.25s ease-out;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* -----------------------------------------------------
+   Action Buttons (Edit & Delete)
+----------------------------------------------------- */
+.action-btn {
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.edit-btn {
+    background: var(--primary);
+    color: white;
+}
+.edit-btn:hover {
+    background: var(--primary-dark);
+}
+
+.delete-btn {
+    background: var(--danger);
+    color: white;
+}
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+
+/* -----------------------------------------------------
+   Modal (Smooth Modern)
+----------------------------------------------------- */
 .modal {
     display: none;
     position: fixed;
@@ -284,122 +315,231 @@ tr:hover {
     background: rgba(0,0,0,0.45);
     opacity: 0;
     animation: fadeIn 0.25s forwards;
+    z-index: 10;
 }
 
 .modal-content {
+    background: white;
+    width: 42%;
+    margin: 7% auto;
+    padding: 22px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     animation: scaleIn 0.25s ease-out forwards;
-    transform: scale(0.85);
     opacity: 0;
+    transform: scale(0.85);
 }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes scaleIn { to { opacity: 1; transform: scale(1); } }
 
-@keyframes scaleIn {
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-#toastContainer {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 9999;
-}
 
-.toast {
-    padding: 12px 18px;
-    margin-top: 10px;
-    border-radius: 6px;
+/* Modal Buttons */
+.save-btn {
+    background: var(--success);
     color: white;
-    font-weight: 500;
-    animation: slideIn 0.4s ease-out, fadeOut 0.4s ease-in 2.6s forwards;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: var(--transition);
 }
 
-.toast.success { background: #4CAF50; }
-.toast.error { background: #E53935; }
-.toast.warning { background: #FFC107; color: black; }
+.save-btn:hover { background: #27ae60; }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.close-btn {
+    background: #6c757d;
+    color: white;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: var(--transition);
 }
 
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateX(40px);
-    }
-}
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #ddd;
-    border-top-color: #3498db;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-bottom: 10px;
-}
+.close-btn:hover { background: #5a6268; }
 
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
 
-#tableContainer {
-    position: relative;
-}
-
+/* -----------------------------------------------------
+   Loading Overlay
+----------------------------------------------------- */
 #loading {
     position: absolute;
     top: 0;
     left: 0;
-
-    width: 90%;
-    height: 90%;
-
-    background: #fff; /* putih agar terlihat jelas */
+    width: 100%;
+    height: 100%;
+    background: white;
     display: none;
-    
 
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    z-index: 10;
+    z-index: 5;
     text-align: center;
 }
 
-#dataTable.hidden {
-    visibility: hidden;
-}
-
-/* Spinner tetap di tengah */
-#loading .spinner {
-    margin-bottom: 10px;
-}
-
-
-#loading.show {
-    display: flex;
-    opacity: 1;
-}
-
-#dataTable {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
+/* Fade Table */
 #dataTable.hidden {
     opacity: 0;
     transform: translateY(8px);
+    transition: var(--transition);
+}
+
+
+/* Spinner */
+.spinner {
+    width: 42px;
+    height: 42px;
+    border: 4px solid #ddd;
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+/* -----------------------------------------------------
+   Toast Notifications (Modern Snackbar)
+----------------------------------------------------- */
+#toastContainer {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.toast {
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    color: white;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+    transform: translateX(40px);
+
+    animation:
+        toastIn 0.45s ease-out forwards,
+        toastStay 2.1s linear forwards 0.45s,
+        toastOut 0.55s ease-out forwards 2.55s;
+}
+
+.toast.success { background: var(--success); }
+.toast.error   { background: var(--danger); }
+.toast.warning { background: var(--warning); color: black; }
+.toast.info    { background: var(--info); }
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastStay {
+    from { opacity: 1; }
+    to   { opacity: 1; }
+}
+
+@keyframes toastOut {
+    from { opacity: 1; transform: translateX(0); }
+    to   { opacity: 0; transform: translateX(40px); }
+}
+
+/* Smooth hover lift */
+.action-btn,
+form button,
+.export-buttons button,
+.save-btn,
+.close-btn {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+.action-btn:hover,
+form button:hover,
+.export-buttons button:hover,
+.save-btn:hover,
+.close-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Press animation */
+.action-btn:active,
+form button:active,
+.export-buttons button:active,
+.save-btn:active,
+.close-btn:active {
+    transform: translateY(0px) scale(0.97);
+}
+
+/* Ripple effect */
+.action-btn::after,
+form button::after,
+.export-buttons button::after,
+.save-btn::after,
+.close-btn::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255,255,255,0.5);
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+.action-btn:active::after,
+form button:active::after,
+.export-buttons button:active::after,
+.save-btn:active::after,
+.close-btn:active::after {
+    opacity: 1;
+    transform: scale(35);
+    transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+form input {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+}
+
+form input:focus {
+    transform: scale(1.015);
+    box-shadow: 0 0 0 4px rgba(13,110,253,0.18);
+    border-color: var(--primary);
+}
+
+#dataTable tbody tr {
+    transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#dataTable tbody tr:hover {
+    transform: scale(1.01);
+    background: #f2f4f7;
+}
+
+.toast {
+    animation:
+        toastPop 0.35s ease-out forwards,
+        toastStay 2.1s linear forwards 0.35s,
+        toastOut 0.55s ease-out forwards 2.45s;
+}
+
+@keyframes toastPop {
+    0%   { opacity: 0; transform: scale(0.85) translateX(30px); }
+    60%  { opacity: 1; transform: scale(1.05) translateX(0); }
+    100% { opacity: 1; transform: scale(1) translateX(0); }
 }
 
