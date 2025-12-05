@@ -65,31 +65,36 @@ function loadData() {
     fetch("/assets/php/api.php")
         .then(res => res.json())
         .then(data => {
-            tableBody.innerHTML = "";
-
-            data.forEach((item, index) => {
-                const row = `
-                <tr class="table-row">
-                    <td>${item.kode_barang}</td>
-                    <td>${item.nama_barang}</td>
-                    <td>${formatNumber(item.harga_perolehan)}</td>
-                    <td>${formatNumber(item.harga_jual)}</td>
-                    <td>${item.jumlah_stock}</td>
-                    <td>${item.suplier_utama}</td>
-                    <td>
-                        <button class="action-btn edit-btn" onclick="editData(${index})"><i class="fas fa-edit"></i> Edit</button>
-                          <button class="action-btn delete-btn" onclick="hapusData(${index})"><i class="fas fa-trash"></i> Hapus</button>
-                    </td>
-                </tr>`;
-                tableBody.innerHTML += row;
-            });
-
+            fullData = data;   // <-- SIMPAN DATA UNTUK SORTING
+            renderTable(fullData); 
             hideLoading();
         })
         .catch(err => {
             console.error("Load error:", err);
-            hideLoading();  // pastikan loading tidak menggantung
+            hideLoading();
         });
+}
+
+function renderTable(data) {
+    tableBody.innerHTML = "";
+
+    data.forEach((item, index) => {
+        const row = `
+        <tr class="table-row">
+            <td>${item.kode_barang}</td>
+            <td>${item.nama_barang}</td>
+            <td>${formatNumber(item.harga_perolehan)}</td>
+            <td>${formatNumber(item.harga_jual)}</td>
+            <td>${item.jumlah_stock}</td>
+            <td>${item.suplier_utama}</td>
+            <td>
+                <button class="edit-btn" onclick="editData(${index})">Edit</button>
+                <button class="delete-btn" onclick="hapusData(${index})">Hapus</button>
+            </td>
+        </tr>`;
+        
+        tableBody.innerHTML += row;
+    });
 }
 
 // SEARCH QUERY
@@ -305,6 +310,52 @@ toggleButton.addEventListener("click", () => {
         localStorage.setItem("theme", "light");
         toggleButton.textContent = "🌙 Dark Mode";
     }
+});
+
+//sorting
+let currentSort = { key: null, order: "asc" };
+let fullData = []; // simpan data untuk sorting lokal
+
+function applySorting(key) {
+    if (currentSort.key === key) {
+        currentSort.order = currentSort.order === "asc" ? "desc" : "asc";
+    } else {
+        currentSort.key = key;
+        currentSort.order = "asc";
+    }
+
+    // Sorting
+    fullData.sort((a, b) => {
+        let valA = a[key];
+        let valB = b[key];
+
+        // pastikan angka disortir sebagai angka
+        if (!isNaN(valA) && !isNaN(valB)) {
+            valA = Number(valA);
+            valB = Number(valB);
+        }
+
+        if (currentSort.order === "asc") return valA > valB ? 1 : -1;
+        return valA < valB ? 1 : -1;
+    });
+
+    renderTable(fullData);
+}
+
+document.querySelectorAll("th.sortable").forEach(th => {
+    th.addEventListener("click", () => {
+        const key = th.dataset.key;
+
+        // reset semua header icons
+        document.querySelectorAll("th.sortable").forEach(h => {
+            h.classList.remove("asc", "desc");
+        });
+
+        applySorting(key);
+
+        // tambahkan class asc / desc untuk icon
+        th.classList.add(currentSort.order);
+    });
 });
 
 

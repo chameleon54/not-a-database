@@ -543,3 +543,33 @@ form input:focus {
     100% { opacity: 1; transform: scale(1) translateX(0); }
 }
 
+/* Table header clickable */
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: 0.2s ease;
+}
+
+th.sortable:hover {
+    background: #eef1f5;
+}
+
+/* Sorting arrows */
+th.sortable::after {
+    content: "⇅";
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    opacity: 0.45;
+}
+
+th.sortable.asc::after {
+    content: "▲";
+    opacity: 1;
+}
+
+th.sortable.desc::after {
+    content: "▼";
+    opacity: 1;
+}
