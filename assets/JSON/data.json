@@ -1,7 +1,7 @@
 [
     {
         "kode_barang": "BRG001",
-        "nama_barang": "Sabun Mandi 2",
+        "nama_barang": "Sabun Mandi",
         "harga_perolehan": "3000",
         "harga_jual": "5000",
         "jumlah_stock": "120",
@@ -16,7 +16,7 @@
         "suplier_utama": "CV Wangi Indah"
     },
     {
-        "kode_barang": "adadda2345",
+        "kode_barang": "adadda234",
         "nama_barang": "mainan",
         "harga_perolehan": "500",
         "harga_jual": "5000",

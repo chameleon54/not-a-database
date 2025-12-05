@@ -6,6 +6,23 @@ const searchInput = document.getElementById("searchInput");
 let loadingStart = 0;
 const MIN_LOADING_TIME = 300; //0.3ms
 
+function showToast(message, type = "success") {
+    const container = document.getElementById("toastContainer");
+
+    const toast = document.createElement("div");
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+
+    container.appendChild(toast);
+
+    // Hapus setelah animasi selesai (3s + 0.3s)
+    setTimeout(() => {
+        toast.remove();
+    }, 3500);
+}
+
+
+
 function showLoading() {
     loadingStart = Date.now();
 
@@ -133,8 +150,11 @@ form.addEventListener("submit", e => {
         .then(() => {
             form.reset();
             loadData();
+            showToast("Data berhasil ditambahkan!", "success");
+
         })
         .catch(err => console.error("Tambah error:", err));
+
 });
 
 // EDIT DATA
@@ -158,18 +178,6 @@ function editData(index) {
             document.getElementById("editModal").style.display = "block";
         });
 }
-
-
-// DELETE DATA
-function hapusData(index) {
-    if (!confirm("Yakin ingin menghapus?")) return;
-
-    fetch(`/assets/php/api.php?index=${index}`, { method: "DELETE" })
-        .then(res => res.json())
-        .then(() => loadData());
-}
-
-
 //popout edit modal
 function tutupModal() {
     document.getElementById("editModal").style.display = "none";
@@ -195,10 +203,18 @@ document.getElementById("editForm").addEventListener("submit", function (e) {
         .then(res => res.json())
         .then(() => {
             tutupModal();
-            loadData();
+            loadData();showToast("Data berhasil diperbarui!", "info");
         });
 });
 
+// DELETE DATA
+function hapusData(index) {
+    if (!confirm("Yakin ingin menghapus?")) return;
+
+    fetch(`/assets/php/api.php?index=${index}`, { method: "DELETE" })
+        .then(res => res.json())
+        .then(() => loadData());showToast("Data berhasil dihapus!", "warning");
+}
 
 
 loadData();
