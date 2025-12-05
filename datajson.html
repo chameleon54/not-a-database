@@ -2,109 +2,79 @@
 <html lang="id">
 <head>
  <meta charset="UTF-8">
- <title>Data JSON dalam Bentuk Tabel</title>
- <style>
-  table {
-   border-collapse: collapse;
-   width: 70%;
-   margin-top: 20px;
-  }
-  th, td {
-   border: 1px solid #333;
-   padding: 8px;
-   text-align: left;
-  }
-  th {
-   background-color: #f2f2f2;
-  }
-  button {
-   cursor: pointer;
-   padding: 4px 8px;
-  }
- </style>
+ <title>Manajemen Data Barang</title>
+ <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
- <h2>Data JSON dalam Bentuk Tabel</h2>
 
- <!-- Form Tambah Data -->
- <form id="dataForm">
-  <input type="text" id="nama" placeholder="Nama" required>
-  <input type="text" id="alamat" placeholder="Alamat" required>
-  <input type="number" id="umur" placeholder="Umur" required>
-  <button type="submit">Tambah Data</button>
- </form>
+<h2>Manajemen Data Barang</h2>
 
- <!-- Tabel Data -->
- <table id="dataTable">
-  <thead>
-   <tr>
-    <th>Nama</th>
-    <th>Alamat</th>
-    <th>Umur</th>
-    <th>Aksi</th>
-   </tr>
-  </thead>
-  <tbody></tbody>
- </table>
+<div class="container">
 
- <script>
- const tableBody = document.querySelector("#dataTable tbody");
- const form = document.querySelector("#dataForm");
+    <!-- search -->
+    <input type="text" id="searchInput" placeholder="Cari barang...">
 
- // Fungsi load data dari server
- function loadData() {
-   fetch("api.php")
-     .then(res => res.json())
-     .then(data => {
-       tableBody.innerHTML = "";
-       data.forEach((item, index) => {
-         const row = `
-           <tr>
-             <td>${item.nama}</td>
-             <td>${item.alamat}</td>
-             <td>${item.umur}</td>
-             <td><button onclick="hapusData(${index})">Hapus</button></td>
-           </tr>`;
-         tableBody.innerHTML += row;
-       });
-     })
-     .catch(err => console.error("Gagal memuat data:", err));
- }
+    <div class="export-buttons">
+    <button id="exportExcel">Export Excel</button>
+    <button id="exportCSV">Export CSV</button>
+    </div>
 
- // Tambah data baru
- form.addEventListener("submit", e => {
-   e.preventDefault();
-   const formData = {
-     nama: document.getElementById("nama").value,
-     alamat: document.getElementById("alamat").value,
-     umur: document.getElementById("umur").value
-   };
 
-   fetch("api.php", {
-     method: "POST",
-     headers: { "Content-Type": "application/json" },
-     body: JSON.stringify(formData)
-   })
-     .then(res => res.json())
-     .then(() => {
-       form.reset();
-       loadData();
-     })
-     .catch(err => console.error("Gagal menambah data:", err));
- });
+    <!-- Form -->
+    <form id="dataForm">
+        <input type="text" id="kode_barang" placeholder="Kode Barang" required>
+        <input type="text" id="nama_barang" placeholder="Nama Barang" required>
+        <input type="number" id="harga_perolehan" placeholder="Harga Perolehan" required>
+        <input type="number" id="harga_jual" placeholder="Harga Jual" required>
+        <input type="number" id="jumlah_stock" placeholder="Jumlah Stock" required>
+        <input type="text" id="suplier_utama" placeholder="Suplier Utama" required>
 
- // Hapus data dari index
- function hapusData(index) {
-   if (confirm("Yakin ingin menghapus data ini?")) {
-     fetch(`api.php?index=${index}`, { method: "DELETE" })
-       .then(res => res.json())
-       .then(() => loadData())
-       .catch(err => console.error("Gagal menghapus data:", err));
-   }
- }
+        <button type="submit">Tambah Data</button>
+    </form>
+    
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Memuat data...</p>
+    </div>
 
- // Load data awal
- loadData();
- </script>
+    <!-- Table -->
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Kode Barang</th>
+                <th>Nama Barang</th>
+                <th>Harga Perolehan</th>
+                <th>Harga Jual</th>
+                <th>Jumlah Stock</th>
+                <th>Suplier Utama</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+</div>
+
+<!-- Modal Edit -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <h3>Edit Data Barang</h3>
+
+    <form id="editForm">
+        <input type="text" id="edit_kode_barang" placeholder="Kode Barang" required>
+        <input type="text" id="edit_nama_barang" placeholder="Nama Barang" required>
+        <input type="number" id="edit_harga_perolehan" placeholder="Harga Perolehan" required>
+        <input type="number" id="edit_harga_jual" placeholder="Harga Jual" required>
+        <input type="number" id="edit_jumlah_stock" placeholder="Jumlah Stock" required>
+        <input type="text" id="edit_suplier_utama" placeholder="Suplier Utama" required>
+
+        <button type="submit" class="save-btn">Simpan Perubahan</button>
+        <button type="button" class="close-btn" onclick="tutupModal()">Batal</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

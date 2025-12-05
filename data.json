@@ -1,17 +1,34 @@
 [
     {
-        "nama": "test",
-        "alamat": "test",
-        "umur": "176"
+        "kode_barang": "BRG001",
+        "nama_barang": "Sabun Mandi 2",
+        "harga_perolehan": "3000",
+        "harga_jual": "5000",
+        "jumlah_stock": "120",
+        "suplier_utama": "PT Bersih Jaya"
     },
     {
-        "nama": "test",
-        "alamat": "test",
-        "umur": "12"
+        "kode_barang": "BRG002",
+        "nama_barang": "Shampoo",
+        "harga_perolehan": 7000,
+        "harga_jual": 10000,
+        "jumlah_stock": 75,
+        "suplier_utama": "CV Wangi Indah"
     },
     {
-        "nama": "test",
-        "alamat": "t23t",
-        "umur": "6"
+        "kode_barang": "adadda",
+        "nama_barang": "test",
+        "harga_perolehan": 241441,
+        "harga_jual": 234145,
+        "jumlah_stock": 5151,
+        "suplier_utama": "ewadadaf134145"
+    },
+    {
+        "kode_barang": "dadasfa",
+        "nama_barang": "gasd",
+        "harga_perolehan": 5000,
+        "harga_jual": 234145,
+        "jumlah_stock": 75,
+        "suplier_utama": "ewadadaf134145"
     }
 ]

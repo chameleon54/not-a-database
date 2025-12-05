@@ -1,0 +1,210 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f6f8;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Search */
+#searchInput {
+    width: 250px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Form styling */
+form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+form input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+form button {
+    grid-column: span 3;
+    padding: 10px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+form button:hover {
+    background: #0b5ed7;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #f1f3f5;
+    font-weight: bold;
+}
+
+tr:hover {
+    background: #f8f9fa;
+}
+
+/* Delete Button */
+.delete-btn {
+    background: #dc3545;
+    padding: 6px 10px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: #bb2d3b;
+}
+.edit-btn {
+    background: #0d6efd;
+    padding: 6px 10px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #0a58ca;
+}
+
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Modal Box */
+.modal-content {
+    background: #fff;
+    width: 40%;
+    margin: 8% auto;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+.save-btn {
+    background: #198754;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.close-btn {
+    background: #6c757d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.modal form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+/* Loading Section */
+.loading {
+    text-align: center;
+    padding: 20px;
+}
+
+.spinner {
+    margin: 0 auto;
+    width: 45px;
+    height: 45px;
+    border: 5px solid #e3e3e3;
+    border-top: 5px solid #0d6efd;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.export-buttons {
+    margin-bottom: 15px;
+}
+
+.export-buttons button {
+    padding: 8px 15px;
+    margin-right: 8px;
+    background: #198754;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.export-buttons button:hover {
+    background: #157347;
+}
