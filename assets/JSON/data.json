@@ -22,5 +22,381 @@
         "harga_jual": "50000",
         "jumlah_stock": "500",
         "suplier_utama": "PT SKINKER"
+    },
+    {
+        "kode_barang": "BRG004",
+        "nama_barang": "Pasta Gigi",
+        "harga_perolehan": "2500",
+        "harga_jual": "4000",
+        "jumlah_stock": "200",
+        "suplier_utama": "PT Bersih Jaya"
+    },
+    {
+        "kode_barang": "BRG005",
+        "nama_barang": "Sikat Gigi",
+        "harga_perolehan": "1500",
+        "harga_jual": "3000",
+        "jumlah_stock": "180",
+        "suplier_utama": "PT Bersih Jaya"
+    },
+    {
+        "kode_barang": "BRG006",
+        "nama_barang": "Tisu Basah",
+        "harga_perolehan": "5000",
+        "harga_jual": "8000",
+        "jumlah_stock": "250",
+        "suplier_utama": "CV Harum Bersih"
+    },
+    {
+        "kode_barang": "BRG007",
+        "nama_barang": "Tisu Kering",
+        "harga_perolehan": "3000",
+        "harga_jual": "5000",
+        "jumlah_stock": "320",
+        "suplier_utama": "CV Harum Bersih"
+    },
+    {
+        "kode_barang": "BRG008",
+        "nama_barang": "Body Lotion",
+        "harga_perolehan": "12000",
+        "harga_jual": "16000",
+        "jumlah_stock": "140",
+        "suplier_utama": "PT SKINKER"
+    },
+    {
+        "kode_barang": "BRG009",
+        "nama_barang": "Minyak Rambut",
+        "harga_perolehan": "6000",
+        "harga_jual": "9000",
+        "jumlah_stock": "100",
+        "suplier_utama": "CV Wangi Indah"
+    },
+    {
+        "kode_barang": "BRG010",
+        "nama_barang": "Pomade",
+        "harga_perolehan": "18000",
+        "harga_jual": "25000",
+        "jumlah_stock": "70",
+        "suplier_utama": "CV Wangi Indah"
+    },
+    {
+        "kode_barang": "BRG011",
+        "nama_barang": "Sisir Rambut",
+        "harga_perolehan": "2000",
+        "harga_jual": "3500",
+        "jumlah_stock": "300",
+        "suplier_utama": "PT Alat Cantik"
+    },
+    {
+        "kode_barang": "BRG012",
+        "nama_barang": "Hand Sanitizer",
+        "harga_perolehan": "7000",
+        "harga_jual": "10000",
+        "jumlah_stock": "260",
+        "suplier_utama": "PT Bersih Jaya"
+    },
+    {
+        "kode_barang": "BRG013",
+        "nama_barang": "Masker Wajah",
+        "harga_perolehan": "5000",
+        "harga_jual": "9000",
+        "jumlah_stock": "400",
+        "suplier_utama": "PT SKINKER"
+    },
+    {
+        "kode_barang": "BRG014",
+        "nama_barang": "Masker Kain",
+        "harga_perolehan": "2000",
+        "harga_jual": "4000",
+        "jumlah_stock": "550",
+        "suplier_utama": "CV Tekstil Indo"
+    },
+    {
+        "kode_barang": "BRG015",
+        "nama_barang": "Kapas Kecantikan",
+        "harga_perolehan": "3000",
+        "harga_jual": "5000",
+        "jumlah_stock": "280",
+        "suplier_utama": "PT SKINKER"
+    },
+    {
+        "kode_barang": "BRG016",
+        "nama_barang": "Cotton Bud",
+        "harga_perolehan": "1500",
+        "harga_jual": "3000",
+        "jumlah_stock": "420",
+        "suplier_utama": "PT SKINKER"
+    },
+    {
+        "kode_barang": "BRG017",
+        "nama_barang": "Minyak Telon",
+        "harga_perolehan": "9000",
+        "harga_jual": "13000",
+        "jumlah_stock": "110",
+        "suplier_utama": "PT Sehat Selalu"
+    },
+    {
+        "kode_barang": "BRG018",
+        "nama_barang": "Minyak Kayu Putih",
+        "harga_perolehan": "8000",
+        "harga_jual": "12000",
+        "jumlah_stock": "150",
+        "suplier_utama": "PT Sehat Selalu"
+    },
+    {
+        "kode_barang": "BRG019",
+        "nama_barang": "Obat Luka",
+        "harga_perolehan": "6000",
+        "harga_jual": "9000",
+        "jumlah_stock": "90",
+        "suplier_utama": "PT Medika Farma"
+    },
+    {
+        "kode_barang": "BRG020",
+        "nama_barang": "Plester Luka",
+        "harga_perolehan": "2000",
+        "harga_jual": "4000",
+        "jumlah_stock": "300",
+        "suplier_utama": "PT Medika Farma"
+    },
+    {
+        "kode_barang": "BRG021",
+        "nama_barang": "Vitamin C",
+        "harga_perolehan": "10000",
+        "harga_jual": "15000",
+        "jumlah_stock": "200",
+        "suplier_utama": "CV Sehat Indo"
+    },
+    {
+        "kode_barang": "BRG022",
+        "nama_barang": "Vitamin B Complex",
+        "harga_perolehan": "12000",
+        "harga_jual": "17000",
+        "jumlah_stock": "160",
+        "suplier_utama": "CV Sehat Indo"
+    },
+    {
+        "kode_barang": "BRG023",
+        "nama_barang": "Minyak Goreng 1L",
+        "harga_perolehan": "14000",
+        "harga_jual": "17000",
+        "jumlah_stock": "350",
+        "suplier_utama": "PT Sumber Mas"
+    },
+    {
+        "kode_barang": "BRG024",
+        "nama_barang": "Gula Pasir 1kg",
+        "harga_perolehan": "12000",
+        "harga_jual": "15000",
+        "jumlah_stock": "400",
+        "suplier_utama": "PT Gula Nusantara"
+    },
+    {
+        "kode_barang": "BRG025",
+        "nama_barang": "Beras Medium 5kg",
+        "harga_perolehan": "52000",
+        "harga_jual": "60000",
+        "jumlah_stock": "200",
+        "suplier_utama": "PT Beras Jaya"
+    },
+    {
+        "kode_barang": "BRG026",
+        "nama_barang": "Susu UHT 1L",
+        "harga_perolehan": "11000",
+        "harga_jual": "14000",
+        "jumlah_stock": "180",
+        "suplier_utama": "PT Susu Sehat"
+    },
+    {
+        "kode_barang": "BRG027",
+        "nama_barang": "Kopi Bubuk 200g",
+        "harga_perolehan": "9000",
+        "harga_jual": "13000",
+        "jumlah_stock": "260",
+        "suplier_utama": "CV Kopi Mantap"
+    },
+    {
+        "kode_barang": "BRG028",
+        "nama_barang": "Teh Celup 25pcs",
+        "harga_perolehan": "5000",
+        "harga_jual": "8000",
+        "jumlah_stock": "320",
+        "suplier_utama": "PT Teh Nusantara"
+    },
+    {
+        "kode_barang": "BRG029",
+        "nama_barang": "Mie Instan Goreng",
+        "harga_perolehan": "2300",
+        "harga_jual": "3000",
+        "jumlah_stock": "800",
+        "suplier_utama": "PT Mie Mantap"
+    },
+    {
+        "kode_barang": "BRG030",
+        "nama_barang": "Mie Instan Kuah",
+        "harga_perolehan": "2300",
+        "harga_jual": "3000",
+        "jumlah_stock": "750",
+        "suplier_utama": "PT Mie Mantap"
+    },
+    {
+        "kode_barang": "BRG031",
+        "nama_barang": "Sarden Kaleng",
+        "harga_perolehan": "8500",
+        "harga_jual": "11000",
+        "jumlah_stock": "230",
+        "suplier_utama": "PT Laut Segar"
+    },
+    {
+        "kode_barang": "BRG032",
+        "nama_barang": "Kornet Sapi",
+        "harga_perolehan": "12000",
+        "harga_jual": "16000",
+        "jumlah_stock": "180",
+        "suplier_utama": "PT Daging Indo"
+    },
+    {
+        "kode_barang": "BRG033",
+        "nama_barang": "Snack Kentang",
+        "harga_perolehan": "3000",
+        "harga_jual": "5000",
+        "jumlah_stock": "600",
+        "suplier_utama": "CV Snack Enak"
+    },
+    {
+        "kode_barang": "BRG034",
+        "nama_barang": "Minuman Energi",
+        "harga_perolehan": "4500",
+        "harga_jual": "7000",
+        "jumlah_stock": "350",
+        "suplier_utama": "PT Minuman Hebat"
+    },
+    {
+        "kode_barang": "BRG035",
+        "nama_barang": "Air Mineral 600ml",
+        "harga_perolehan": "1500",
+        "harga_jual": "3000",
+        "jumlah_stock": "900",
+        "suplier_utama": "PT Air Sehat"
+    },
+    {
+        "kode_barang": "BRG036",
+        "nama_barang": "Minyak Zaitun",
+        "harga_perolehan": "17000",
+        "harga_jual": "22000",
+        "jumlah_stock": "120",
+        "suplier_utama": "PT Sehat Selalu"
+    },
+    {
+        "kode_barang": "BRG037",
+        "nama_barang": "Telur Ayam 1kg",
+        "harga_perolehan": "22000",
+        "harga_jual": "26000",
+        "jumlah_stock": "150",
+        "suplier_utama": "PT Peternak Makmur"
+    },
+    {
+        "kode_barang": "BRG038",
+        "nama_barang": "Sosis Ayam",
+        "harga_perolehan": "8000",
+        "harga_jual": "12000",
+        "jumlah_stock": "250",
+        "suplier_utama": "PT Daging Indo"
+    },
+    {
+        "kode_barang": "BRG039",
+        "nama_barang": "Keju Cheddar",
+        "harga_perolehan": "14000",
+        "harga_jual": "18000",
+        "jumlah_stock": "180",
+        "suplier_utama": "PT Dairy Nusantara"
+    },
+    {
+        "kode_barang": "BRG040",
+        "nama_barang": "Mentega 200g",
+        "harga_perolehan": "9000",
+        "harga_jual": "13000",
+        "jumlah_stock": "200",
+        "suplier_utama": "PT Dairy Nusantara"
+    },
+    {
+        "kode_barang": "BRG041",
+        "nama_barang": "Roti Tawar",
+        "harga_perolehan": "8000",
+        "harga_jual": "12000",
+        "jumlah_stock": "140",
+        "suplier_utama": "PT Bakery Indah"
+    },
+    {
+        "kode_barang": "BRG042",
+        "nama_barang": "Selai Kacang",
+        "harga_perolehan": "15000",
+        "harga_jual": "20000",
+        "jumlah_stock": "170",
+        "suplier_utama": "PT Madu Jaya"
+    },
+    {
+        "kode_barang": "BRG043",
+        "nama_barang": "Selai Strawberry",
+        "harga_perolehan": "14000",
+        "harga_jual": "19000",
+        "jumlah_stock": "160",
+        "suplier_utama": "PT Madu Jaya"
+    },
+    {
+        "kode_barang": "BRG044",
+        "nama_barang": "Baterai AA",
+        "harga_perolehan": "4000",
+        "harga_jual": "7000",
+        "jumlah_stock": "300",
+        "suplier_utama": "PT Elektronik Jaya"
+    },
+    {
+        "kode_barang": "BRG045",
+        "nama_barang": "Baterai AAA",
+        "harga_perolehan": "3500",
+        "harga_jual": "6000",
+        "jumlah_stock": "280",
+        "suplier_utama": "PT Elektronik Jaya"
+    },
+    {
+        "kode_barang": "BRG046",
+        "nama_barang": "Lampu LED 9W",
+        "harga_perolehan": "9000",
+        "harga_jual": "13000",
+        "jumlah_stock": "240",
+        "suplier_utama": "PT Lampu Terang"
+    },
+    {
+        "kode_barang": "BRG047",
+        "nama_barang": "Stop Kontak",
+        "harga_perolehan": "12000",
+        "harga_jual": "17000",
+        "jumlah_stock": "180",
+        "suplier_utama": "PT Elektronik Jaya"
+    },
+    {
+        "kode_barang": "BRG048",
+        "nama_barang": "Kabel Charger",
+        "harga_perolehan": "8000",
+        "harga_jual": "12000",
+        "jumlah_stock": "300",
+        "suplier_utama": "PT Gadget Indo"
+    },
+    {
+        "kode_barang": "BRG049",
+        "nama_barang": "Earphone",
+        "harga_perolehan": "15000",
+        "harga_jual": "20000",
+        "jumlah_stock": "220",
+        "suplier_utama": "PT Gadget Indo"
+    },
+    {
+        "kode_barang": "BRG050",
+        "nama_barang": "USB Flashdisk 16GB",
+        "harga_perolehan": "35000",
+        "harga_jual": "45000",
+        "jumlah_stock": "180",
+        "suplier_utama": "PT Gadget Indo"
     }
 ]

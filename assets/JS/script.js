@@ -88,8 +88,8 @@ function renderTable(data) {
             <td>${item.jumlah_stock}</td>
             <td>${item.suplier_utama}</td>
             <td>
-                <button class="edit-btn" onclick="editData(${index})">Edit</button>
-                <button class="delete-btn" onclick="hapusData(${index})">Hapus</button>
+                <button class="action-btn edit-btn" onclick="editData(${index})">Edit</button>
+                <button class="action-btn delete-btn" onclick="hapusData(${index})">Hapus</button>
             </td>
         </tr>`;
         
@@ -118,8 +118,8 @@ searchInput.addEventListener("keyup", function () {
                     <td>${item.jumlah_stock}</td>
                     <td>${item.suplier_utama}</td>
                     <td>
-                        <button onclick="editData(${index})">Edit</button>
-                        <button onclick="hapusData(${index})">Hapus</button>
+                        <button class="action-btn edit-btn" onclick="editData(${index})">Edit</button>
+                        <button class="action-btn delete-btn" onclick="hapusData(${index})">Hapus</button>
                     </td>
                 </tr>`;
                 tableBody.innerHTML += row;
