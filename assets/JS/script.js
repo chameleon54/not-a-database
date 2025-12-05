@@ -138,7 +138,11 @@ form.addEventListener("submit", e => {
 });
 
 // EDIT DATA
+let editIndex = -1;
+
 function editData(index) {
+    editIndex = index; 
+
     fetch("/assets/php/api.php")
         .then(res => res.json())
         .then(data => {
@@ -154,6 +158,7 @@ function editData(index) {
             document.getElementById("editModal").style.display = "block";
         });
 }
+
 
 // DELETE DATA
 function hapusData(index) {

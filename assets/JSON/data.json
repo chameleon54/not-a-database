@@ -16,19 +16,11 @@
         "suplier_utama": "CV Wangi Indah"
     },
     {
-        "kode_barang": "adadda",
-        "nama_barang": "test",
-        "harga_perolehan": 241441,
-        "harga_jual": 234145,
-        "jumlah_stock": 5151,
-        "suplier_utama": "ewadadaf134145"
-    },
-    {
-        "kode_barang": "test23",
-        "nama_barang": "41414",
-        "harga_perolehan": "4141",
-        "harga_jual": "1414",
-        "jumlah_stock": "4141",
-        "suplier_utama": "41414"
+        "kode_barang": "adadda2345",
+        "nama_barang": "mainan",
+        "harga_perolehan": "500",
+        "harga_jual": "5000",
+        "jumlah_stock": "5",
+        "suplier_utama": "pt mabar"
     }
 ]
