@@ -75,10 +75,19 @@ function loadData() {
         });
 }
 
+let currentPage = 1;
+let rowsPerPage = 5; // Jumlah baris per halaman
+
+//render tabel
 function renderTable(data) {
     tableBody.innerHTML = "";
 
-    data.forEach((item, index) => {
+    let start = (currentPage - 1) * rowsPerPage;
+    let end = start + rowsPerPage;
+
+    let paginatedData = data.slice(start, end);
+
+    paginatedData.forEach((item, index) => {
         const row = `
         <tr class="table-row">
             <td>${item.kode_barang}</td>
@@ -88,14 +97,58 @@ function renderTable(data) {
             <td>${item.jumlah_stock}</td>
             <td>${item.suplier_utama}</td>
             <td>
-                <button class="action-btn edit-btn" onclick="editData(${index})">Edit</button>
-                <button class="action-btn delete-btn" onclick="hapusData(${index})">Hapus</button>
+                <button class="action-btn edit-btn" onclick="editData(${start + index})">Edit</button>
+                <button class="action-btn delete-btn" onclick="hapusData(${start + index})">Hapus</button>
             </td>
         </tr>`;
-        
         tableBody.innerHTML += row;
     });
+
+    renderPagination(data.length);
 }
+//pagination
+function renderPagination(totalRows) {
+    const pageNumbers = document.getElementById("pageNumbers");
+    pageNumbers.innerHTML = "";
+
+    let totalPages = Math.ceil(totalRows / rowsPerPage);
+
+    // Buat nomor halaman
+    for (let i = 1; i <= totalPages; i++) {
+        let page = document.createElement("span");
+        page.classList.add("page-number");
+        if (i === currentPage) page.classList.add("active");
+
+        page.innerText = i;
+        page.onclick = () => {
+            currentPage = i;
+            renderTable(fullData);
+        };
+
+        pageNumbers.appendChild(page);
+    }
+
+    // tombol prev & next
+    document.getElementById("prevPage").disabled = (currentPage === 1);
+    document.getElementById("nextPage").disabled = (currentPage === totalPages);
+}
+//logic prev & next
+document.getElementById("prevPage").onclick = () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTable(fullData);
+    }
+};
+
+document.getElementById("nextPage").onclick = () => {
+    let totalPages = Math.ceil(fullData.length / rowsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderTable(fullData);
+    }
+};
+
+
 
 // SEARCH QUERY
 searchInput.addEventListener("keyup", function () {
