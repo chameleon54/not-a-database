@@ -158,29 +158,14 @@ searchInput.addEventListener("keyup", function () {
     const keyword = this.value;
 
     showLoading();
+    currentPage = 1; // reset halaman setiap search
 
     fetch(`/assets/php/api.php?search=${keyword}`)
         .then(res => res.json())
         .then(data => {
-            tableBody.innerHTML = "";
 
-            data.forEach((item, index) => {
-                const row = `
-                <tr class="table-row">
-                    <td>${item.kode_barang}</td>
-                    <td>${item.nama_barang}</td>
-                    <td>${formatNumber(item.harga_perolehan)}</td>
-                    <td>${formatNumber(item.harga_jual)}</td>
-                    <td>${item.jumlah_stock}</td>
-                    <td>${item.suplier_utama}</td>
-                    <td>
-                        <button class="action-btn edit-btn" onclick="editData(${index})">Edit</button>
-                        <button class="action-btn delete-btn" onclick="hapusData(${index})">Hapus</button>
-                    </td>
-                </tr>`;
-                tableBody.innerHTML += row;
-            });
-
+            fullData = data;      // simpan hasil search
+            renderTable(fullData); // gunakan pagination
             hideLoading();
         })
         .catch(err => {
@@ -188,6 +173,7 @@ searchInput.addEventListener("keyup", function () {
             hideLoading();
         });
 });
+
 
 // TAMBAH DATA
 form.addEventListener("submit", e => {
@@ -413,6 +399,75 @@ document.querySelectorAll("th.sortable").forEach(th => {
         th.classList.add(currentSort.order);
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const title = document.querySelector(".splash-title");
+    const subtitle = document.querySelector(".splash-subtitle");
+
+    // ⏳ 1) Tunggu title masuk dulu (1.2s animasi + sedikit jeda)
+    setTimeout(() => {
+
+        // 2) Fade-out title
+        title.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        title.style.opacity = "0";
+        title.style.transform = "translateY(-12px)";
+
+        // 3) Setelah fade-out selesai → fade-in subtitle
+        setTimeout(() => {
+            subtitle.style.transition = "opacity 0.9s ease, transform 0.9s ease";
+            subtitle.style.opacity = "1";
+            subtitle.style.transform = "translateY(0)";
+        }, 900);
+
+    }, 2200); 
+});
+
+
+// // SPLASH SCREEN HIDE AFTER LOADING
+// window.addEventListener("load", () => {
+//     setTimeout(() => {
+//         document.getElementById("splashPremium").classList.add("hidden");
+//     }, 2000);//settime splash screen
+// });
+
+window.addEventListener("load", () => {
+
+    const splash = document.getElementById("splashPremium");
+
+    if (!sessionStorage.getItem("premiumSplashShown")) {
+
+        sessionStorage.setItem("premiumSplashShown", "1");
+
+        splash.style.display = "flex";
+
+        setTimeout(() => {
+            splash.remove();
+        }, 3500);  // total splash duration
+
+    } else {
+        splash.remove();
+    }
+});
+
+// reset splash
+function resetSplash() {
+    sessionStorage.removeItem("premiumSplashShown");
+    location.reload();
+}
+
+
+// window.addEventListener("load", () => {
+//     if (!sessionStorage.getItem("splashShown")) {
+//         setTimeout(() => {
+//             document.getElementById("splashScreen").classList.add("hidden");
+//         }, 1200);//detik splash screen
+
+//         sessionStorage.setItem("splashShown", "yes");
+//     } else {
+//         document.getElementById("splashScreen").style.display = "none";
+//     }
+// });
+
 
 
 loadData();

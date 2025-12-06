@@ -68,6 +68,28 @@
     --pagination-bg-hover: #3a3d41;
 }
 
+/* -----------------------------------------------------
+   DARK MODE — Visible Premium Hover
+----------------------------------------------------- */
+.dark #dataTable tbody tr:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: var(--text) !important;
+    transform: scale(1.01);
+}
+
+/* Header clickable hover */
+.dark th.sortable:hover {
+    background: rgba(255, 255, 255, 0.10) !important;
+    color: var(--text);
+}
+.dark #dataTable tbody tr:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(4px);
+    color: var(--text);
+    transform: scale(1.01);
+}
+
+
 
 /* -----------------------------------------------------
     APPLY DARK STYLES
@@ -123,8 +145,199 @@
     color: white;
 }
 
+/* ------------------------------------------------------
+   PREMIUM GLASSMORPHISM SPLASH
+------------------------------------------------------ */
+
+.glass-splash {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1b1b1b, #000);
+    overflow: hidden;
+    z-index: 9000;
+    animation: splashFadeOut 0.9s ease forwards;
+    animation-delay: 3.2s;
+}
+
+.splash-wrapper {
+    backdrop-filter: blur(25px);
+    background: rgba(255,255,255,0.06);
+    padding: 40px 60px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 4px 22px rgba(0,0,0,0.4);
+}
 
 
+
+/* -------------------------------------------------------
+   🌟 PREMIUM SPLASH SCREEN FINAL
+------------------------------------------------------- */
+
+/* Base container */
+.splash-screen-premium {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(-45deg, #1a1a1a, #0d0d0d, #1c1c1c, #0a0a0a);
+    background-size: 400% 400%;
+    animation: 
+        gradientMove 7s ease infinite,
+        splashExit 1s ease forwards 3.3s;
+
+    z-index: 99999;
+    overflow: hidden;
+}
+
+/* Animated gradient */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Wrapper fade-in */
+.splash-wrapper {
+    text-align: center;
+    opacity: 0;
+    animation: wrapperAppear 1s ease forwards 0.2s;
+}
+@keyframes wrapperAppear {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* 🔥 SVG Drawing Animation */
+#premiumPath {
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.7));
+
+    animation:
+        logoDraw 1.6s ease forwards,
+        logoGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes logoDraw {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes logoGlow {
+    0%   { filter: drop-shadow(0 0 6px rgba(255,255,255,0.4)); }
+    100% { filter: drop-shadow(0 0 14px rgba(255,255,255,1)); }
+}
+
+/* Logo pop */
+#premiumLogo {
+    opacity: 0;
+    transform: scale(0.6);
+    animation: logoPop 0.8s cubic-bezier(.16,.89,.32,1.35) forwards 0.4s;
+}
+@keyframes logoPop {
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Title animation (diperlambat) */
+.splash-title {
+    margin-top: 16px;
+    font-size: 26px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: titleAppear 1s ease-out forwards;
+    animation-delay: 1.2s; /* muncul lebih awal */
+}
+
+@keyframes titleAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Subtitle animation (lebih lambat dan lebih smooth) */
+.splash-subtitle {
+    margin-top: 4px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #bbbbbb;
+    opacity: 0;
+    transform: translateY(22px);
+    animation: subtitleRise 1.3s ease-out forwards;
+    animation-delay: 2.2s;  /* sebelumnya 1.8s */
+}
+
+/* More smooth keyframes */
+@keyframes titleRise {
+    0% { opacity: 0; transform: translateY(24px) scale(0.94); }
+    40% { opacity: 1; transform: translateY(0) scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+@keyframes subtitleRise {
+    0% { opacity: 0; transform: translateY(26px); }
+    100% { opacity: 0.85; transform: translateY(0); }
+}
+
+
+/* 🌟 Particle floating */
+.splash-particle {
+    position: absolute;
+    bottom: -20px;
+    width: 7px;
+    height: 7px;
+    background: rgba(255,255,255,0.45);
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    0%   { opacity: 0; transform: translateY(0) translateX(0); }
+    20%  { opacity: .8; }
+    100% { opacity: 0; transform: translateY(-180px) translateX(40px); }
+}
+
+
+/* ✨ Spotlight shine */
+.splash-shine {
+    position: absolute;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 65%);
+    animation: shineMove 2.3s ease-in-out forwards 0.6s;
+}
+@keyframes shineMove {
+    0% { transform: translateY(60%) translateX(-50%); opacity: 0; }
+    40% { opacity: 0.25; }
+    100% { transform: translateY(-60%) translateX(-50%); opacity: 0; }
+}
+
+
+/* Exit transition */
+@keyframes splashExit {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.06); visibility: hidden; }
+}
+
+/* Dark mode */
+.dark .splash-screen-premium {
+    background: linear-gradient(-45deg, #000, #131313, #000, #111);
+}
+
+.dark #premiumPath {
+    stroke: #4da8ff;
+    filter: drop-shadow(0 0 10px rgba(77,168,255,0.9));
+}
 /* -----------------------------------------------------
    Global Layout
 ----------------------------------------------------- */
