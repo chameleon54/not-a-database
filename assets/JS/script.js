@@ -23,6 +23,7 @@ function showToast(message, type = "success") {
 
 
 
+
 function showLoading() {
     loadingStart = Date.now();
 
@@ -90,13 +91,14 @@ function renderTable(data) {
     paginatedData.forEach((item, index) => {
         const row = `
         <tr class="table-row">
-            <td>${item.kode_barang}</td>
-            <td>${item.nama_barang}</td>
-            <td>${formatNumber(item.harga_perolehan)}</td>
-            <td>${formatNumber(item.harga_jual)}</td>
-            <td>${item.jumlah_stock}</td>
-            <td>${item.suplier_utama}</td>
-            <td>
+            <td data-label="Kode">${item.kode_barang}</td>
+            <td data-label="Nama">${item.nama_barang}</td>
+            <td data-label="H. Perolehan">${formatNumber(item.harga_perolehan)}</td>
+            <td data-label="H. Jual">${formatNumber(item.harga_jual)}</td>
+            <td data-label="Stok">${item.jumlah_stock}</td>
+            <td data-label="Supplier">${item.suplier_utama}</td>
+
+            <td data-label="Aksi">
                 <button class="action-btn edit-btn" onclick="editData(${start + index})">Edit</button>
                 <button class="action-btn delete-btn" onclick="hapusData(${start + index})">Hapus</button>
             </td>
@@ -106,6 +108,7 @@ function renderTable(data) {
 
     renderPagination(data.length);
 }
+
 //pagination
 function renderPagination(totalRows) {
     const pageNumbers = document.getElementById("pageNumbers");

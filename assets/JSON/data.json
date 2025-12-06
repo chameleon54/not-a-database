@@ -2,7 +2,7 @@
     {
         "kode_barang": "BRG001",
         "nama_barang": "Sabun Mandi",
-        "harga_perolehan": "4000",
+        "harga_perolehan": "5000",
         "harga_jual": "5000",
         "jumlah_stock": "120",
         "suplier_utama": "PT Bersih Jaya"

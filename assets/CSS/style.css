@@ -61,7 +61,13 @@
 
     background: var(--bg);
     color: var(--text);
+    --pagination-bg: #2c2f33;
+    --pagination-text: #f1f1f1;
+    --pagination-bg-active: #4aa3ff;
+    --pagination-text-active: white;
+    --pagination-bg-hover: #3a3d41;
 }
+
 
 /* -----------------------------------------------------
     APPLY DARK STYLES
@@ -603,13 +609,19 @@ th.sortable.desc::after {
 .page-number {
     padding: 6px 10px;
     border-radius: 6px;
-    background: #e9ecef;
+    background: var(--pagination-bg);
+    color: var(--pagination-text);
     cursor: pointer;
     transition: 0.2s;
 }
 
+.page-number:hover {
+    background: var(--pagination-bg-hover);
+}
+
 .page-number.active {
-    background: var(--primary);
-    color: white;
+    background: var(--pagination-bg-active);
+    color: var(--pagination-text-active);
     font-weight: bold;
 }
+
