@@ -77,7 +77,7 @@ function loadData() {
 }
 
 let currentPage = 1;
-let rowsPerPage = 5; // Jumlah baris per halaman
+let rowsPerPage = 5; // Jumlah baris per halaman (customizable)
 
 //render tabel
 function renderTable(data) {
@@ -265,6 +265,7 @@ function hapusData(index) {
 
 
 // EXPORT DATA
+//CSV
 document.getElementById("exportCSV").addEventListener("click", function () {
 
     fetch("/assets/php/api.php")
@@ -286,7 +287,7 @@ document.getElementById("exportCSV").addEventListener("click", function () {
             link.click();
         });
 });
-
+//XLS atau EXCEL
 document.getElementById("exportExcel").addEventListener("click", function () {
 
     fetch("/assets/php/api.php")
@@ -333,7 +334,6 @@ document.getElementById("exportExcel").addEventListener("click", function () {
 });
 
 //darkmode
-
 const toggleButton = document.getElementById("themeToggle");
 
 // apply saved theme
@@ -404,15 +404,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.querySelector(".splash-title");
     const subtitle = document.querySelector(".splash-subtitle");
 
-    // ⏳ 1) Tunggu title masuk dulu (1.2s animasi + sedikit jeda)
+    
     setTimeout(() => {
 
-        // 2) Fade-out title
+        // Fade-out title
         title.style.transition = "opacity 0.8s ease, transform 0.8s ease";
         title.style.opacity = "0";
         title.style.transform = "translateY(-12px)";
 
-        // 3) Setelah fade-out selesai → fade-in subtitle
+        // Setelah fade-out selesai fade-in subtitle
         setTimeout(() => {
             subtitle.style.transition = "opacity 0.9s ease, transform 0.9s ease";
             subtitle.style.opacity = "1";
@@ -423,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// // SPLASH SCREEN HIDE AFTER LOADING
+// ONLY USE FOR DEBUGGING PURPOSE
 // window.addEventListener("load", () => {
 //     setTimeout(() => {
 //         document.getElementById("splashPremium").classList.add("hidden");

@@ -4,15 +4,15 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-$file = "../JSON/data.json";
+$file = "../JSON/data.json";// Lokasi file JSON
 
-// Buat file jika belum ada
+// Buat file json jika belum ada
 if (!file_exists($file)) {
     file_put_contents($file, json_encode([]));
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
-//CRUD MULAI
+//======================CRUD MULAI=========================
 // Ambil Data atau Search
 if ($method === "GET") {
 
@@ -47,7 +47,7 @@ if ($method === "GET") {
 }
 
 
-// --- Tambah Data ---
+//Tambah Data 
 if ($method === "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
     $existing = json_decode(file_get_contents($file), true);
@@ -55,7 +55,7 @@ if ($method === "POST") {
     $existing[] = [
         "kode_barang" => $data["kode_barang"],
         "nama_barang" => $data["nama_barang"],
-        "harga_perolehan" => intval($data["harga_perolehan"]),
+        "harga_perolehan" => intval($data["harga_perolehan"]), //intval untuk memastikan tipe data integer only selain itu boleh karakter
         "harga_jual" => intval($data["harga_jual"]),
         "jumlah_stock" => intval($data["jumlah_stock"]),
         "suplier_utama" => $data["suplier_utama"]
@@ -66,7 +66,7 @@ if ($method === "POST") {
     exit;
 }
 
-// --- Hapus Data ---
+// Hapus Data 
 if ($method === "DELETE") {
     $index = isset($_GET['index']) ? intval($_GET['index']) : -1;
     $existing = json_decode(file_get_contents($file), true);
@@ -82,7 +82,7 @@ if ($method === "DELETE") {
     exit;
 }
 
-// EDIT Data (PUT)
+// EDIT Data 
 if ($method === "PUT") {
     parse_str($_SERVER['QUERY_STRING'], $params);
     $index = isset($params['index']) ? intval($params['index']) : -1;
@@ -100,5 +100,5 @@ if ($method === "PUT") {
     }
     exit;
 }
-
+//================crud selesai=========================
 ?>
